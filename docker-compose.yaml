@@ -1,18 +1,4 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: nest-docker-postgres
-    environment:
-      - PORT=3000
-    ports:
-      - '3000:3000'
-    depends_on:
-      - mysql_db
-    volumes:
-      - ./src:/app/src
-
   mysql_db:
     image: mysql:latest
     container_name: mysql_container
