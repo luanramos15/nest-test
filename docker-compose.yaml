@@ -1,4 +1,16 @@
 services:
+  nestjs-app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start:dev
+    depends_on:
+      - mysql_db
   mysql_db:
     image: mysql:latest
     container_name: mysql_container
